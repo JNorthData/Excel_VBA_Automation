@@ -17,7 +17,7 @@ The VBA performs the following tasks on all pages of the workbbok:
     - Determine which tickers showed the 'Greatest % increase', 'Greatest % decrease', and 'Greatest total volume', and display those values. 
 
 
-![Workbook Before](images/Workbook_Before.png "Workbook original"))
+![Workbook Before](images/Workbook_Before.png "Workbook original")
 
 
-![Workbook After](images/Workbook_After.png "Workbook after VBA changes"))
+![Workbook After](images/Workbook_After.png "Workbook after VBA changes")
