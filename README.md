@@ -14,6 +14,13 @@ The VBA performs the following tasks on all pages of the workbook:
 - Add colored text and fill to 'Yearly Change' and 'Percent Change' columns, based on conditional formatting for positive or negative values.
 - Determine which tickers showed the 'Greatest % increase', 'Greatest % decrease', and 'Greatest total volume', and display those values.
 
+### Instructions
+
+1. In Excel, open the workbook `multiple_year_stock_data.xlsx`.
+2. Go to the Tools menu.
+3. Select Macro from the dropdown list.
+4. Choose Visual Basic Editor.
+
 ### Original Workbook
 
 ![Excel Workbook before applying VBA script](images/Workbook_Before.png)
