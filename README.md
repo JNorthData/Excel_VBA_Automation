@@ -21,6 +21,11 @@ The VBA performs the following tasks on all pages of the workbook:
 3. Select Macro from the dropdown list.
 4. Choose Visual Basic Editor.
 
+5. In the Project panel, Right-Click on any object in 'Microsoft Excel Objects', and select 'Import File...'.
+6. Import the 'VBA_Stock_Data_3_Years.bas' file. It will appear as 'Module1' in the Project panel in a 'Modules' folder.
+7. Double-click 'Module1' to open it in the editor.
+8. With the cursor somewhere in the 'Module1' text, run the macro.  
+
 ### Original Workbook
 
 ![Excel Workbook before applying VBA script](images/Workbook_Before.png)

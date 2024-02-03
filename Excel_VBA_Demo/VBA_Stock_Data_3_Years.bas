@@ -79,7 +79,7 @@ Sub CalculateYearlyChange()
             ' Check if the ticker value is different from the cell value above it
             If ticker <> ws.Cells(i - 1, "A").Value Then
                 ' Start date is the current row's date
-                startDate = ws.Cells(i, "B").Value
+                startDate = CDate(ws.Cells(i, "B").Value)
                 
                 ' Find the last row with the same ticker
                 Dim j As Long
@@ -89,11 +89,11 @@ Sub CalculateYearlyChange()
                 Loop
                 
                 ' Stop date is the date of the last row with the same ticker
-                stopDate = ws.Cells(j - 1, "B").Value
+                stopDate = CDate(ws.Cells(j - 1, "B").Value)
                 
                 ' Set yrOpen and yrClose based on Start and Stop dates
-                yrOpen = ws.Cells(i, "C").Value
-                yrClose = ws.Cells(j - 1, "F").Value
+                yrOpen = CDate(ws.Cells(i, "C").Value)
+                yrClose = CDate(ws.Cells(j - 1, "F").Value)
                 
                 ' Calculate yearly change
                 Dim yearlyChange As Double
@@ -102,7 +102,7 @@ Sub CalculateYearlyChange()
                 ' Calculate percent change
                 Dim percentChange As Double
                 If yrOpen <> 0 Then
-                    percentChange = (yearlyChange / yrOpen)
+                    percentChange = round((yearlyChange / yrOpen), 2)
                 Else
                     percentChange = 0
                 End If
@@ -138,27 +138,27 @@ Sub CalculateTotalVolume()
     ' Loop through each sheet in the workbook
     For Each ws In ThisWorkbook.Worksheets
         ' Find the last row in column A
-        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row - 1
+        lastRow = CDate(ws.Cells(ws.Rows.Count, "A").End(xlUp).Row - 1)
         
         ' Loop through each row of data
         For i = 2 To lastRow
             ' Get the ticker from column A
-            ticker = ws.Cells(i, "A").Value
+            ticker = CDate(ws.Cells(i, "A").Value)
             
             ' Check if the ticker value is different from the cell value above it
-            If ticker <> ws.Cells(i - 1, "A").Value Then
+            If ticker <> CDate(ws.Cells(i - 1, "A").Value Then)
                 ' Calculate total volume
                 totalVolume = WorksheetFunction.SumIf(ws.Range("A:A"), ticker, ws.Range("G:G"))
                 
                 ' Insert total volume in column L for the corresponding ticker in column I
                 Dim tickerRange As Range
-                Set tickerRange = ws.Range("I:I").Find(What:=ticker, LookIn:=xlValues, LookAt:=xlWhole)
+                Set tickerRange = CDate(ws.Range("I:I").Find(What:=ticker, LookIn:=xlValues, LookAt:=xlWhole))
                 
                 If Not tickerRange Is Nothing Then
                     Dim tickerRow As Long
                     tickerRow = tickerRange.Row
                     
-                    ws.Cells(tickerRow, "L").Value = totalVolume
+                    CDate(ws.Cells(tickerRow, "L").Value = totalVolume)
                 End If
             End If
         Next i
